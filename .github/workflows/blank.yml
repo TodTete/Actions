@@ -11,9 +11,20 @@ on:
 
 jobs:
   build:
+
+    env:
+      platform: linux
+
     runs-on: ubuntu-latest
 
     steps:
       - name: "Show message"
         run: echo "Hello World!"
+
+      - name: "Show varibles"
+        if: ${{ env.platform == 'linux' }}
+        run: |
+         echo "Varible is $(env.platform)"
+        
+        
 
